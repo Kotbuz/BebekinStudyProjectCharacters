@@ -1,0 +1,48 @@
+@model IEnumerable<StudyProject.Models.CharacterModel>
+
+@{
+    ViewData["Title"] = "Characters";
+}
+<h1>Characters</h1>
+
+<p>
+    <a asp-action="Editor" asp-controller="Characters" class="button">Create New Character</a>
+</p>
+<hr />
+
+
+<div class="container-fluid px-4 my-5">
+    <h1 class="text-center mb-5">Characters</h1>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-6 g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col" data-char-id="@item.Id">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://via.placeholder.com/500x300" class="card-img-top" alt="@item.Name">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                        <p class="card-text">
+                            <strong>Species:</strong> @Html.DisplayFor(modelItem => item.Species)
+                            <br>
+                            <strong>Level:</strong> @Html.DisplayFor(modelItem => item.Level)
+                        </p>
+                        <row>
+                            <button id="@item.Id" , asp-action="Details" asp-controller="Characters" asp-route-id="@item.Id" class="details-btn btn btn-info btn-sm w-45">
+                                Details
+                            </button>
+                            <button id="@item.Id" class="edit-btn btn-open-modal btn btn-primary btn-sm w-45">
+                                Edit
+                            </button>
+                        </row>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+<script>
+</script>
+

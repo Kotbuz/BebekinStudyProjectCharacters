@@ -1,0 +1,35 @@
+@model StudyProject.Models.CharacterModel
+
+@{
+    ViewData["Title"] = "Создание нового персонажа";
+}
+
+<h1>Создание нового персонажа</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class asp-append-filter="append&modelStart">
+                <div asp-item="Name" class="form-group mb-3">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                </div>
+                <div asp-item="Species" class="form-group mb-3">
+                    <label asp-for="Species" class="control-label"></label>
+                    <input asp-for="Species" class="form-control" />
+                </div>
+                <div asp-item="Level" class="form-group mb-3">
+                    <label asp-for="Level" class="control-label"></label>
+                    <input asp-for="Level" class="form-control" />
+                </div>
+                <div asp-item="Description" class="form-group mb-3">
+                    <label asp-for="Description" class="control-label"></label>
+                    <textarea asp-for="Description" class="form-control"></textarea>
+                </div>
+            </div>
+
+            <button type="submit" asp-action="PostCreate" class="btn btn-primary mt-3">Create</button>
+        </form>
+    </div>
+</div>
+<p class="mt-3"><a asp-action="Index">Отмена</a></p>
